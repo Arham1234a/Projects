@@ -32,7 +32,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown('<div style="display:flex;align-items:center;gap:18px"><div class="neon-title">⚡ Neon Movie Recommender</div><div class="neon-sub">AI vibes • Dark mode • Neon blue</div></div>', unsafe_allow_html=True)
+st.markdown('<div style="display:flex;align-items:center;gap:18px"><div class="neon-title">⚡Movies Recommender</div><div class="neon-sub">AI vibes • Dark mode • Neon blue</div></div>', unsafe_allow_html=True)
 st.markdown('<div class="hint">Tip: use the search box or pick from the dropdown. If posters are missing, add a TMDB API key in env or secrets.</div>', unsafe_allow_html=True)
 st.write('')
 
@@ -185,4 +185,4 @@ if st.button('Generate Recommendations ⚡'):
 
 # Footer
 st.markdown('---')
-st.markdown('<div style="text-align:center;color:#7fb9d9">Made with ❤️ — Neon recommender • Ask me to dockerize or HF-space this.</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center;color:#7fb9d9">Made with ❤️ — Movie recommender • Ask me to dockerize or HF-space this.</div>', unsafe_allow_html=True)
