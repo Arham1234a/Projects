@@ -8,6 +8,7 @@ import pandas as pd
 import joblib
 import requests
 from difflib import get_close_matches
+import gdown
 
 # -----------------------------
 # Config + Page
@@ -40,19 +41,29 @@ st.write('')
 # -----------------------------
 @st.cache_resource
 def load_artifacts():
-    # try in artifacts/ first
-    movies_path = 'artifacts/movies.pkl' if os.path.exists('artifacts/movies.pkl') else 'movies.pkl'
-    vec_path = 'vectorizer.joblib'
-    sim_path = 'artifacts/similarity.joblib' if os.path.exists('artifacts/similarity.joblib') else 'similarity.joblib'
+    FILES = {
+        "movies.pkl": "1poE_gX5xyrtGR314bYuJfb5poRbntFMy",
+        "vectorizer.joblib": "1j7v9OFNLVN766S1Yf6D6Y0hYpwYOZkn8",
+        "similarity.joblib": "15l4YHYnN-z4sTlG5upGKLcVnRce9lKhg"
+    }
 
-    movies = pd.read_pickle(movies_path)
-    vectorizer = joblib.load(vec_path)
-    similarity = joblib.load(sim_path)
+    # download if missing
+    for fname, file_id in FILES.items():
+        if not os.path.exists(fname):
+            url = f"https://drive.google.com/uc?id={file_id}"
+            gdown.download(url, fname, quiet=False)
 
-    # ensure a title column exists and is string
-    movies['title'] = movies['title'].astype(str)
+    # load after download
+    movies = pd.read_pickle("movies.pkl")
+    vectorizer = joblib.load("vectorizer.joblib")
+    similarity = joblib.load("similarity.joblib")
+
+    # ensure title column as string
+    movies["title"] = movies["title"].astype(str)
+
     return movies, vectorizer, similarity
 
+# auto-load when app starts
 movies, vectorizer, similarity = load_artifacts()
 
 # -----------------------------
