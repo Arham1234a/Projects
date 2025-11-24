@@ -1,4 +1,4 @@
-## Step-1 download the app.py file and movies.zip file and requirement.txt
+## Step-1 download the app.py file and movies.zip file and requirements.txt
 
 ## Step-2 install the all package that in the requirements.txt and unzip the movies.zip file
 
