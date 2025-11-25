@@ -64,9 +64,10 @@ result = model.predict(vectorized_sms)[0]
 # 4. display result
 if st.button('Predict'):
     if result == 1:
-        st.header('Spam Hai Bro')
+        st.header('Spam')
     else:
-        st.header('Genuine Message hai')
+        st.header('Not Spam')
+
 
 
 
