@@ -1,3 +1,0 @@
-﻿streamlit
-pickle
-nltk
