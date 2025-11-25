@@ -47,6 +47,7 @@ def transform_text(text):
     clean_data = [ps.stem(item) for item in rem_stop_words ]
     return " ".join(clean_data)
 
+st.set_page_config(page_title="Neon Movie Recommender", layout="wide", initial_sidebar_state="expanded")
 st.title('SMS/Email Spam Detector')
 
 msg = st.text_area(
@@ -66,6 +67,7 @@ if st.button('Predict'):
         st.header('Spam Hai Bro')
     else:
         st.header('Genuine Message hai')
+
 
 
 
